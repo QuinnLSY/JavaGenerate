@@ -1,1 +1,1 @@
-运行easyjava中的RunApplication.java即可生成对应数据库文件相关的springboot项目基础代码
+  运行Generate中的RunApplication.java即可生成对应数据库文件相关的springboot项目Generate_Demo基础代码
