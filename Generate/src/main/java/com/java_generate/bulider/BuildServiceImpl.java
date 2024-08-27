@@ -14,16 +14,17 @@ import java.util.Map;
 /**
  * @ Tool：IntelliJ IDEA
  * @ Author：单纯同学
- * @ Date：2024-08-27-09:58
- * @ Description：服务类
+ * @ Date：2024-08-27-12:03
+ * @ Description：服务类接口
  */
 
-public class BuildService {
-    private static final Logger logger = LoggerFactory.getLogger(BuildService.class);
+public class BuildServiceImpl {
+    private static final Logger logger = LoggerFactory.getLogger(BuildServiceImpl.class);
 
     public static void execute(TableInfo tableInfo){
-        String className = tableInfo.getBeanName() + "Service";
-        File folder = new File(Constants.PATH_SERVICE);
+        String className = tableInfo.getBeanName() + "ServiceImpl";
+        String serviceClassName = tableInfo.getBeanName() + "Service";
+        File folder = new File(Constants.PATH_SERVICE_IMPL);
         if (!folder.exists()) {
             folder.mkdirs();
         }
@@ -39,7 +40,7 @@ public class BuildService {
             bw = new BufferedWriter(outw);
 
             // 写包名
-            bw.write("package " + Constants.PACKAGE_SERVICE + ";");
+            bw.write("package " + Constants.PACKAGE_SERVICE_IMPL + ";");
             bw.newLine();
             bw.newLine();
             // 导入包
@@ -49,14 +50,19 @@ public class BuildService {
             bw.newLine();
             bw.write("import "+ Constants.PACKAGE_VO+".PaginationResultVO;");
             bw.newLine();
+            bw.write("import "+ Constants.PACKAGE_SERVICE+"." + serviceClassName + ";");
+            bw.newLine();
+            bw.write("import org.springframework.stereotype.Service;");
+            bw.newLine();
             bw.newLine();
             bw.write("import java.util.List;");
             bw.newLine();
             bw.newLine();
 
 
-            BuildComment.creatClassComment(bw, tableInfo.getTableComment() + "服务类");
-            bw.write("public interface " + className + " {\n");
+            BuildComment.creatClassComment(bw, tableInfo.getTableComment() + "服务类接口");
+            bw.write("@Service(\"" + StringUtiles.toLowerCaseFirstOne(serviceClassName) + "\")\n");
+            bw.write("public class " + className + " implements " + serviceClassName + "{\n");
 
             BuildComment.creatFieldComment(bw, "根据条件查询列表");
             bw.write("\tList<" + tableInfo.getBeanName() + "> findListByParam(" + tableInfo.getBeanParamName() + " query);\n");
@@ -108,10 +114,10 @@ public class BuildService {
             bw.write("}\n");
 
 
-            
+
             bw.flush();
         }catch (Exception e){
-            logger.error("生成Service失败", e);
+            logger.error("生成ServiceImpl失败", e);
         }finally {
             if(bw != null){
                 try{

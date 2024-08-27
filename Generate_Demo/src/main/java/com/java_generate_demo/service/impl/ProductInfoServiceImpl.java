@@ -1,17 +1,20 @@
-package com.java_generate_demo.service;
+package com.java_generate_demo.service.impl;
 
 import com.java_generate_demo.entity.po.ProductInfo;
 import com.java_generate_demo.entity.query.ProductInfoQuery;
 import com.java_generate_demo.entity.vo.PaginationResultVO;
+import com.java_generate_demo.service.ProductInfoService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * @ Author: 单纯同学
  * @ Date: 2024-08-27-12:22
- * @ Description: 商品信息服务类
+ * @ Description: 商品信息服务类接口
  */
-public interface ProductInfoService {
+@Service("productInfoService")
+public class ProductInfoServiceImpl implements ProductInfoService{
 	/**
 	 * 根据条件查询列表
 	 */
