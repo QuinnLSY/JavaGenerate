@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @ Author: 单纯同学
- * @ Date: 2024-08-27-12:22
+ * @ Date: 2024-08-27-23:00
  * @ Description: 商品信息服务类
  */
 public interface ProductInfoService {
@@ -19,7 +19,7 @@ public interface ProductInfoService {
 	/**
 	 * 根据条件查询数量
 	 */
-	Long findCountByParam(ProductInfoQuery query);
+	Integer findCountByParam(ProductInfoQuery query);
 	/**
 	 * 分页查询
 	 */
@@ -27,15 +27,15 @@ public interface ProductInfoService {
 	/**
 	 * 新增
 	 */
-	Long add(ProductInfo bean);
+	Integer add(ProductInfo bean);
 	/**
 	 * 批量新增
 	 */
-	Long addBatch(List<ProductInfo> ListBean);
+	Integer addBatch(List<ProductInfo> listBean);
 	/**
 	 * 批量新增或修改
 	 */
-	Long addOrUpdateBatch(List<ProductInfo> ListBean);
+	Integer addOrUpdateBatch(List<ProductInfo> listBean);
 	/**
 	 * 根据Id查询
 	 */
@@ -44,12 +44,12 @@ public interface ProductInfoService {
 	/**
 	 * 根据Id更新
 	 */
-	Long updateProductInfoById(ProductInfo bean, Integer id);
+	Integer updateProductInfoById(ProductInfo bean, Integer id);
 
 	/**
 	 * 根据Id删除
 	 */
-	Long deleteProductInfoById(Integer id);
+	Integer deleteProductInfoById(Integer id);
 
 	/**
 	 * 根据Code查询
@@ -59,12 +59,12 @@ public interface ProductInfoService {
 	/**
 	 * 根据Code更新
 	 */
-	Long updateProductInfoByCode(ProductInfo bean, String code);
+	Integer updateProductInfoByCode(ProductInfo bean, String code);
 
 	/**
 	 * 根据Code删除
 	 */
-	Long deleteProductInfoByCode(String code);
+	Integer deleteProductInfoByCode(String code);
 
 	/**
 	 * 根据SkuTypeAndColorType查询
@@ -74,11 +74,11 @@ public interface ProductInfoService {
 	/**
 	 * 根据SkuTypeAndColorType更新
 	 */
-	Long updateProductInfoBySkuTypeAndColorType(ProductInfo bean, Integer skuType, Integer colorType);
+	Integer updateProductInfoBySkuTypeAndColorType(ProductInfo bean, Integer skuType, Integer colorType);
 
 	/**
 	 * 根据SkuTypeAndColorType删除
 	 */
-	Long deleteProductInfoBySkuTypeAndColorType(Integer skuType, Integer colorType);
+	Integer deleteProductInfoBySkuTypeAndColorType(Integer skuType, Integer colorType);
 
 }
