@@ -1,5 +1,4 @@
 
-
 public class SimplePage {
     private Integer pageNo;
     private Integer pageSize;

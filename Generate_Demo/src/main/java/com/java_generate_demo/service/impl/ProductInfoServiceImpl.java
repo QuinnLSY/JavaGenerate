@@ -4,7 +4,7 @@ import com.java_generate_demo.entity.po.ProductInfo;
 import com.java_generate_demo.entity.query.ProductInfoQuery;
 import com.java_generate_demo.entity.vo.PaginationResultVO;
 import com.java_generate_demo.entity.query.SimplePage;
-import com.java_generate_demo.enums.PageSize;
+import com.java_generate_demo.entity.enums.PageSize;
 import com.java_generate_demo.service.ProductInfoService;
 import com.java_generate_demo.mappers.ProductInfoMapper;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * @ Author: 单纯同学
- * @ Date: 2024-08-27-23:00
+ * @ Date: 2024-08-28-22:08
  * @ Description: 商品信息服务类接口
  */
 @Service("productInfoMapper")

@@ -1,5 +1,6 @@
 package com.java_generate_demo.entity.query;
-import com.java_generate_demo.enums.PageSize;
+
+import com.java_generate_demo.entity.enums.PageSize;
 
 
 public class SimplePage {

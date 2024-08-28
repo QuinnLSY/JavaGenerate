@@ -29,10 +29,12 @@ public class Constants {
     public static String PATH_VO;
     public static String PATH_UTILS;
     public static String PATH_ENUMS;
+    public static String PATH_EXCEPTION;
     public static String PATH_MAPPERS;
     public static String PATH_MAPPERS_XMLS;
     public static String PATH_SERVICE;
     public static String PATH_SERVICE_IMPL;
+    public static String PATH_CONTROLLER;
 
     public static String PACKAGE_BASE;
     public static String PACKAGE_PO;
@@ -40,9 +42,11 @@ public class Constants {
     public static String PACKAGE_VO;
     public static String PACKAGE_UTILS;
     public static String PACKAGE_ENUMS;
+    public static String PACKAGE_EXCEPTION;
     public static String PACKAGE_MAPPERS;
     public static String PACKAGE_SERVICE;
     public static String PACKAGE_SERVICE_IMPL;
+    public static String PACKAGE_CONTROLLER;
 
     // 需要忽略的属性
     public static String IGNORE_BEAN_TOJSON_FIELD;
@@ -71,9 +75,11 @@ public class Constants {
         PACKAGE_VO = PACKAGE_BASE + "." + PropertiesUtils.getString("package.vo");
         PACKAGE_UTILS = PACKAGE_BASE + "." + PropertiesUtils.getString("package.utils");
         PACKAGE_ENUMS = PACKAGE_BASE + "." + PropertiesUtils.getString("package.enums");
+        PACKAGE_EXCEPTION = PACKAGE_BASE + "." + PropertiesUtils.getString("package.exception");
         PACKAGE_MAPPERS = PACKAGE_BASE + "." + PropertiesUtils.getString("package.mappers");
         PACKAGE_SERVICE = PACKAGE_BASE + "." + PropertiesUtils.getString("package.service");
         PACKAGE_SERVICE_IMPL = PACKAGE_BASE + "." + PropertiesUtils.getString("package.service.impl");
+        PACKAGE_CONTROLLER = PACKAGE_BASE + "." + PropertiesUtils.getString("package.controller");
         // 文件路径
         PATH_BASE_s = PropertiesUtils.getString("path.base");
         PATH_BASE = PATH_BASE_s + "/" + PATH_JAVA;
@@ -82,10 +88,12 @@ public class Constants {
         PATH_VO = PATH_BASE + "/" + PACKAGE_VO.replace(".", "/");
         PATH_UTILS = PATH_BASE + "/" + PACKAGE_UTILS.replace(".", "/");
         PATH_ENUMS = PATH_BASE + "/" + PACKAGE_ENUMS.replace(".", "/");
+        PATH_EXCEPTION = PATH_BASE + "/" + PACKAGE_EXCEPTION.replace(".", "/");
         PATH_MAPPERS = PATH_BASE + "/" + PACKAGE_MAPPERS.replace(".", "/");
         PATH_MAPPERS_XMLS = PATH_BASE_s + "/" + PATH_RESOURCES + "/" + PACKAGE_MAPPERS.replace(".", "/");
         PATH_SERVICE = PATH_BASE + "/" + PACKAGE_SERVICE.replace(".", "/");
         PATH_SERVICE_IMPL = PATH_BASE + "/" + PACKAGE_SERVICE_IMPL.replace(".", "/");
+        PATH_CONTROLLER = PATH_BASE + "/" + PACKAGE_CONTROLLER.replace(".", "/");
 
 
         IGNORE_BEAN_TOJSON_FIELD = PropertiesUtils.getString("ignore.bean.tojson.field");

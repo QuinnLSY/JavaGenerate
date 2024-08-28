@@ -7,12 +7,12 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.java_generate_demo.utils.DateUtils;
-import com.java_generate_demo.enums.DateTimePatternEnum;
+import com.java_generate_demo.entity.enums.DateTimePatternEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @ Author: 单纯同学
- * @ Date: 2024-08-27-23:00
+ * @ Date: 2024-08-28-22:08
  * @ Description: 商品信息
  */
 public class ProductInfo implements Serializable {

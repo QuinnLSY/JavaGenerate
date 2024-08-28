@@ -1,5 +1,6 @@
 package com.java_generate_demo.entity.query;
 
+
 public class BaseQuery{
     private SimplePage simplePage;
     private Integer pageSize;

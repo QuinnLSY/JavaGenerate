@@ -48,6 +48,32 @@ public class BuildBase {
         headerInfoList.add("package " + Constants.PACKAGE_VO);
         build(headerInfoList,"PaginationResultVO", Constants.PATH_VO);
         headerInfoList.clear();
+        // 生成异常处理逻辑
+        headerInfoList.add("package " + Constants.PACKAGE_EXCEPTION);
+        headerInfoList.add("import " + Constants.PACKAGE_ENUMS + ".ResponseCodeEnum");
+        build(headerInfoList,"BusinessException", Constants.PATH_EXCEPTION);
+        headerInfoList.clear();
+        // 生成异常类型枚举
+        headerInfoList.add("package " + Constants.PACKAGE_ENUMS);
+        build(headerInfoList,"ResponseCodeEnum", Constants.PATH_ENUMS);
+        headerInfoList.clear();
+        // 生成异常信息体
+        headerInfoList.add("package " + Constants.PACKAGE_VO);
+        build(headerInfoList,"ResponseVO", Constants.PATH_VO);
+        headerInfoList.clear();
+        // 生成基础controller
+        headerInfoList.add("package " + Constants.PACKAGE_CONTROLLER);
+        headerInfoList.add("import " + Constants.PACKAGE_ENUMS + ".ResponseCodeEnum");
+        headerInfoList.add("import " + Constants.PACKAGE_VO + ".ResponseVO");
+        build(headerInfoList,"ABaseController", Constants.PATH_CONTROLLER);
+        headerInfoList.clear();
+        // 生成异常处理控制器
+        headerInfoList.add("package " + Constants.PACKAGE_CONTROLLER);
+        headerInfoList.add("import " + Constants.PACKAGE_ENUMS + ".ResponseCodeEnum");
+        headerInfoList.add("import " + Constants.PACKAGE_VO + ".ResponseVO");
+        headerInfoList.add("import " + Constants.PACKAGE_EXCEPTION + ".BusinessException");
+        build(headerInfoList,"AGlobalExceptionHandlerController", Constants.PATH_CONTROLLER);
+        headerInfoList.clear();
     }
 
     private static void build(List<String> headerInfoList, String fileName, String outPutPath) {
@@ -77,13 +103,13 @@ public class BuildBase {
             // 导入包
             for (String headerInfo : headerInfoList) {
                 if(headerInfo.contains("package")){
-                    bw.write(headerInfo + ";");
+                    bw.write(headerInfo + ";\n");
                 }
             }
             bw.newLine();
             for (String headerInfo : headerInfoList) {
                 if(headerInfo.contains("import")){
-                    bw.write(headerInfo + ";");
+                    bw.write(headerInfo + ";\n");
                 }
             }
             bw.newLine();

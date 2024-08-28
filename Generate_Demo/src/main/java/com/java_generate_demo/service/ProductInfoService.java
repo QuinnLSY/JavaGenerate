@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @ Author: 单纯同学
- * @ Date: 2024-08-27-23:00
+ * @ Date: 2024-08-28-22:08
  * @ Description: 商品信息服务类
  */
 public interface ProductInfoService {
