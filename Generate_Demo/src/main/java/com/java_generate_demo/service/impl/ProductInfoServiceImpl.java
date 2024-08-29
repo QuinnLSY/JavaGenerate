@@ -15,10 +15,10 @@ import java.util.List;
 
 /**
  * @ Author: 单纯同学
- * @ Date: 2024-08-28-22:08
+ * @ Date: 2024-08-28-22:35
  * @ Description: 商品信息服务类接口
  */
-@Service("productInfoMapper")
+@Service("productInfoService")
 public class ProductInfoServiceImpl implements ProductInfoService{
 	@Resource
 	private ProductInfoMapper<ProductInfo, ProductInfoQuery> productInfoMapper;

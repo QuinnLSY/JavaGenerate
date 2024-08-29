@@ -117,6 +117,11 @@
 		</if>
 	</select>
 
+	<!-- 查询数量-->
+	<select id="selectCount" resultType="java.lang.Integer">
+		SELECT count(1) FROM tb_product_info <include refid="query_condition"/>
+	</select>
+
 	<!-- 插入（匹配有值的字段）-->
 	<insert id="insert" parameterType="com.java_generate_demo.entity.po.ProductInfo">
 		<selectKey keyProperty="bean.id" resultType="Integer" order="AFTER">

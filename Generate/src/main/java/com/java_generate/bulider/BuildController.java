@@ -51,6 +51,10 @@ public class BuildController {
             bw.newLine();
             bw.write("import "+ Constants.PACKAGE_SERVICE+"."+ serviceClassName +";");
             bw.newLine();
+            bw.write("import " + Constants.PACKAGE_VO + ".ResponseVO;");
+            bw.newLine();
+            bw.write("import org.springframework.web.bind.annotation.RequestBody;");
+            bw.newLine();
             bw.write("import org.springframework.web.bind.annotation.RequestMapping;");
             bw.newLine();
             bw.write("import org.springframework.web.bind.annotation.RestController;");

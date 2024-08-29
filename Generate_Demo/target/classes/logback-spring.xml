@@ -1,0 +1,29 @@
+<!--log输出-->
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="10 minutes">
+    <appender name="stdot" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss,GMT+8} [%p] [%c] [%M] [%L] -> %m%n</Pattern>
+        </layout>
+    </appender>
+
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/logs/generate.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/logs/generate.log.%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <clearHistoryOnStart>true</clearHistoryOnStart>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20MB</maxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss,GMT+8} [%p] [%c] [%M] [%L] -> %m%n</pattern>
+        </encoder>
+    </appender>
+    <root level="debug">
+        <appender-ref ref="stdot"/>
+        <appender-ref ref="file"/>
+    </root>
+</configuration>

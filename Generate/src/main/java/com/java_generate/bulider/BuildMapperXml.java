@@ -165,6 +165,12 @@ public class BuildMapperXml {
             bw.write("\t</select>\n");
             bw.newLine();
 
+            bw.write("\t<!-- 查询数量-->\n");
+            bw.write("\t<select id=\"selectCount\" resultType=\"java.lang.Integer\">\n");
+            bw.write("\t\tSELECT count(1) FROM "+ tableInfo.getTableName() + " <include refid=\"" + QUERY_CONDITION+ "\"/>\n");
+            bw.write("\t</select>\n");
+            bw.newLine();
+
 
             bw.write("\t<!-- 插入（匹配有值的字段）-->\n");
             bw.write("\t<insert id=\"insert\" parameterType=\"" + Constants.PACKAGE_PO + "." + tableInfo.getBeanName() + "\">\n");

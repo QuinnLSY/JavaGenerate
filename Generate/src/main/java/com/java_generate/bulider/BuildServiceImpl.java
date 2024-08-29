@@ -24,6 +24,7 @@ public class BuildServiceImpl {
     public static void execute(TableInfo tableInfo){
         String className = tableInfo.getBeanName() + "ServiceImpl";
         String serviceClassName = tableInfo.getBeanName() + "Service";
+        String serviceBeanName = StringUtiles.toLowerCaseFirstOne(serviceClassName);
         String mapperClassName = tableInfo.getBeanName() + "Mapper";
         String mapperBeanName = StringUtiles.toLowerCaseFirstOne(mapperClassName);
         File folder = new File(Constants.PATH_SERVICE_IMPL);
@@ -72,7 +73,7 @@ public class BuildServiceImpl {
 
 
             BuildComment.creatClassComment(bw, tableInfo.getTableComment() + "服务类接口");
-            bw.write("@Service(\"" + mapperBeanName + "\")\n");
+            bw.write("@Service(\"" + serviceBeanName + "\")\n");
             bw.write("public class " + className + " implements " + serviceClassName + "{\n");
 
             bw.write("\t@Resource\n");

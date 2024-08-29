@@ -3,6 +3,8 @@ package com.java_generate_demo.controller;
 import com.java_generate_demo.entity.po.ProductInfo;
 import com.java_generate_demo.entity.query.ProductInfoQuery;
 import com.java_generate_demo.service.ProductInfoService;
+import com.java_generate_demo.entity.vo.ResponseVO;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +14,7 @@ import java.util.List;
 
 /**
  * @ Author: 单纯同学
- * @ Date: 2024-08-28-22:08
+ * @ Date: 2024-08-28-22:35
  * @ Description: 商品信息控制器
  */
 @RestController
