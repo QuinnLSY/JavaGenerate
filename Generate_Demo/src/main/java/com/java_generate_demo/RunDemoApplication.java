@@ -7,13 +7,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @ Tool：IntelliJ IDEA
  * @ Author：单纯同学
- * @ Date：2024-08-28-22:15
+ * @ Date：2024-08-29-21:23
  * @ Description：启动
  */
+
 @SpringBootApplication
-@MapperScan(basePackages = {"com.java_generate_demo.mappers"})
+@MapperScan(basePackages = "com.java_generate_demo.mappers")
 public class RunDemoApplication {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         SpringApplication.run(RunDemoApplication.class, args);
     }
 }

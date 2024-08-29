@@ -1,1 +1,11 @@
-  运行Generate中的RunApplication.java即可生成对应数据库文件相关的springboot项目Generate_Demo基础代码
+# 1.运行  
+- 运行Generate中的RunApplication.java即可生成对应数据库文件相关的springboot项目Generate_Demo基础代码
+# 2.适配数据库表
+- 修改application.properties中：
+  1. db.url=jdbc:mysql://localhost:3306/generate（数据库名）
+  2. 数据库用户名：db.username=
+  3. 数据库密码：db.password=
+  4. 作者名：author.name=
+  5. 需要忽略的属性ignore.bean.tojson.field=xxx
+  6. 文件输出路径path.base=/Users/chenjianxu/IdeaProjects/JavaGenerate/Generate_Demo/src/main
+  7. 基础包名base.package=com.java_generate_demo

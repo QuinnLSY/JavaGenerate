@@ -45,15 +45,15 @@ public class TableInfo {
     /**
     * 是否包含Date类型
      */
-    private Boolean haveDate;
+    private Boolean haveDate = false;
     /**
      * 是否包含DataTime类型
      */
-    private Boolean haveDataTime;
+    private Boolean haveDataTime = false;
     /**
      * 是否包含BigDecimal类型
      */
-    private Boolean haveBigDecimal;
+    private Boolean haveBigDecimal = false;
 
 
     public String getTableName() {

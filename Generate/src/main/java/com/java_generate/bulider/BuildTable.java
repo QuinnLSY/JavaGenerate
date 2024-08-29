@@ -26,7 +26,8 @@ import java.util.Map;
 public class BuildTable {
     private  static final Logger logger = LoggerFactory.getLogger(BuildTable.class);
     private static Connection conn = null;
-    private static String SQL_SHOW_TABLE_STATUS = "SHOW TABLE STATUS LIKE 'tb_product_info'";
+//    private static String SQL_SHOW_TABLE_STATUS = "SHOW TABLE STATUS LIKE 'tb_product_info'";
+    private static String SQL_SHOW_TABLE_STATUS = "SHOW TABLE STATUS";
     private static String SQL_SHOW_TABLE_FIELDS = "SHOW FULL FIELDS FROM %s";
     private static String SQL_SHOW_TABLE_INDEXS = "SHOW INDEX FROM %s";
 
