@@ -77,27 +77,27 @@ public class BuildController {
             bw.write("\tprivate "+ serviceClassName + " " + serviceBeanName+";\n");
 
             BuildComment.creatFieldComment(bw, "加载数据列表");
-            bw.write("\t@RequestMapping(\"loadDataList\")\n");
+            bw.write("\t@RequestMapping(\"/loadDataList\")\n");
             bw.write("\tpublic ResponseVO loadDataList(" + tableInfo.getBeanParamName() + " query){\n");
             bw.write("\t\treturn getSuccessResponseVO(" + serviceBeanName + ".findListByPage(query));\n");
             bw.write("\t}\n");
 
             BuildComment.creatFieldComment(bw, "新增");
-            bw.write("\t@RequestMapping(\"add\")\n");
+            bw.write("\t@RequestMapping(\"/add\")\n");
             bw.write("\tpublic ResponseVO add(" + tableInfo.getBeanName() + " bean){\n");
             bw.write("\t\t" + serviceBeanName + ".add(bean);\n");
             bw.write("\t\treturn getSuccessResponseVO(null);\n");
             bw.write("\t}\n");
 
             BuildComment.creatFieldComment(bw, "批量新增");
-            bw.write("\t@RequestMapping(\"addBatch\")\n");
+            bw.write("\t@RequestMapping(\"/addBatch\")\n");
             bw.write("\tpublic ResponseVO addBatch(@RequestBody List<" + tableInfo.getBeanName() + "> listBean){\n");
             bw.write("\t\t" + serviceBeanName + ".addBatch(listBean);\n");
             bw.write("\t\treturn getSuccessResponseVO(null);\n");
             bw.write("\t}\n");
 
             BuildComment.creatFieldComment(bw, "批量新增或修改");
-            bw.write("\t@RequestMapping(\"addOrUpdateBatchBatch\")\n");
+            bw.write("\t@RequestMapping(\"/addOrUpdateBatchBatch\")\n");
             bw.write("\tpublic ResponseVO addOrUpdateBatch(@RequestBody List<" + tableInfo.getBeanName() + "> listBean){\n");
             bw.write("\t\t" + serviceBeanName + ".addOrUpdateBatch(listBean);\n");
             bw.write("\t\treturn getSuccessResponseVO(null);\n");
@@ -125,28 +125,31 @@ public class BuildController {
                 }
                 BuildComment.creatFieldComment(bw, "根据" + methodName + "查询");
                 String getMethod = "get" + tableInfo.getBeanName() + "By" + methodName;
-                bw.write("\t@RequestMapping(\"" + getMethod +"\")\n");
+                bw.write("\t@RequestMapping(\"/" + getMethod +"\")\n");
                 bw.write("\tpublic ResponseVO " + getMethod + "(" + methodParams+ "){\n");
                 bw.write("\t\treturn getSuccessResponseVO(" + serviceBeanName + "." +getMethod + "(" + methodPropertyName + "));\n");
                 bw.write("\t}\n");
                 bw.newLine();
+                bw.newLine();
 
                 BuildComment.creatFieldComment(bw, "根据" + methodName + "更新");
                 String updateMethod = "update" + tableInfo.getBeanName() + "By" + methodName;
-                bw.write("\t@RequestMapping(\"" + updateMethod + "\")\n");
+                bw.write("\t@RequestMapping(\"/" + updateMethod + "\")\n");
                 bw.write("\tpublic ResponseVO "+ updateMethod + "(" + tableInfo.getBeanName() + " bean, " + methodParams+ "){\n");
                 bw.write("\t\t" + serviceBeanName + "." + updateMethod + "(bean, " + methodPropertyName + ");\n");
                 bw.write("\t\treturn getSuccessResponseVO(null);\n");
                 bw.write("\t}\n");
                 bw.newLine();
+                bw.newLine();
 
                 BuildComment.creatFieldComment(bw, "根据" + methodName + "删除");
                 String deleteMethod = "delete" + tableInfo.getBeanName() + "By" + methodName;
-                bw.write("\t@RequestMapping(\"" + deleteMethod + "\")\n");
+                bw.write("\t@RequestMapping(\"/" + deleteMethod + "\")\n");
                 bw.write("\tpublic ResponseVO "+deleteMethod + "(" + methodParams+ "){\n");
                 bw.write("\t\t" + serviceBeanName + "." + deleteMethod + "(" + methodPropertyName + ");\n");
                 bw.write("\t\treturn getSuccessResponseVO(null);\n");
                 bw.write("\t}\n");
+                bw.newLine();
                 bw.newLine();
 
             }

@@ -9,3 +9,4 @@
   5. 需要忽略的属性ignore.bean.tojson.field=xxx
   6. 文件输出路径path.base=/Users/chenjianxu/IdeaProjects/JavaGenerate/Generate_Demo/src/main
   7. 基础包名base.package=com.java_generate_demo
+  8. 是否忽略表前缀ignore.table.prefix
