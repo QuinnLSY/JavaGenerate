@@ -69,7 +69,7 @@ public class BuildController {
 
 
             BuildComment.creatClassComment(bw, tableInfo.getTableComment() + "控制器");
-            bw.write("@RestController\n");
+            bw.write("@RestController(\"" + StringUtiles.toLowerCaseFirstOne(tableInfo.getBeanName()) + "Controller\")\n");
             bw.write("@RequestMapping(\"/"+ StringUtiles.toLowerCaseFirstOne(tableInfo.getBeanName())+"\")\n");
             bw.write("public class " + className + " extends ABaseController{\n\n");
 
