@@ -29,6 +29,7 @@ public class BuildMapper {
         }
 
         String className = tableInfo.getBeanName() + Constants.SUFFIX_MAPPERS;
+        String queryName = tableInfo.getBeanName() + Constants.SUFFIX_BEAN_QUERY;
         File mapperFile = new File(folder, className + ".java");
 
         OutputStream out = null;
@@ -84,6 +85,11 @@ public class BuildMapper {
 
                 BuildComment.creatFieldComment(bw, "根据" + methodName + "删除");
                 bw.write("\tInteger deleteBy" + methodName + "(" + methodParams+ ");");
+                bw.newLine();
+                bw.newLine();
+
+                BuildComment.creatFieldComment(bw, "根据param更新");
+                bw.write("\tInteger updateByParam(@Param(\"bean\") T t, @Param(\"query\")" + queryName + " query);");
                 bw.newLine();
                 bw.newLine();
 

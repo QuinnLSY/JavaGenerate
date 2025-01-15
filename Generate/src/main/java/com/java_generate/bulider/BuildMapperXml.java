@@ -360,6 +360,31 @@ public class BuildMapperXml {
                 bw.write("\t</select>\n");
             }
 
+            bw.write("\t<!-- 根据param修改 -->\n");
+            bw.write("\t<update id=\"updateByParam\" parameterType=\"" + Constants.PACKAGE_QUERY + "." + tableInfo.getBeanName() +Constants.SUFFIX_BEAN_QUERY + "\">\n");
+            bw.write("\t\tUPDATE "+ tableInfo.getTableName() + "\n");
+            bw.write("\t\t<set>\n");
+            FieldInfo idFieldInfo = null;
+            for (FieldInfo fieldInfo : tableInfo.getFieldList()) {
+                if(fieldInfo.isAutoIncrement() != null && fieldInfo.isAutoIncrement()){
+                    idFieldInfo = fieldInfo;
+                    continue;
+                }
+                bw.write("\t\t\t<if test=\"bean." + fieldInfo.getPropertyName() + " != null\">\n");
+                bw.write("\t\t\t\t" + fieldInfo.getFieldName() + " = #{bean." + fieldInfo.getPropertyName() + "},\n");
+                bw.write("\t\t\t</if>\n");
+            }
+            bw.write("\t\t</set>\n");
+            bw.write("\t\t<include refid=\"query_condition\"/>" + "\n");
+            bw.write("\t</update>\n");
+
+            bw.write("\t<!-- 根据param删除 -->\n");
+            bw.write("\t<delete id=\"deleteByParam\">\n");
+            bw.write("\t\tDELETE FROM " + tableInfo.getTableName() + "\n");
+            bw.write("\t\t<include refid=\"query_condition\"/>" + "\n");
+            bw.write("\t</delete>\n");
+
+
             bw.newLine();
             bw.write("</mapper>");
             bw.flush();
